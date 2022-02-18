@@ -15,12 +15,20 @@ public class UsoJSOUP {
             e.printStackTrace();
         }
         System.out.println(doc.title());
-        Elements newsHeadlines = doc.select("CurrentConditions--phraseValue--2Z18W");
-        Elements newsHeadlines1 = doc.select("CurrentConditions--tempValue--3a50n");
-        Elements newsHeadlines2 = doc.select("CurrentConditions--location--kyTeL");
+        Elements newsHeadlines = doc.select(".CurrentConditions--phraseValue--2Z18W");
+        Elements newsHeadlines1 = doc.select(".CurrentConditions--tempValue--3a50n");
+        Elements newsHeadlines2 = doc.select(".CurrentConditions--location--kyTeL");
 
         for (Element headline : newsHeadlines) {
-            System.out.format("%s\n\t",headline.text());
+            System.out.format("%s\n\t",headline.html());
         }
+
+        for (Element headline : newsHeadlines1) {
+            System.out.format("%s\n\t",headline.html());
+        }
+        for (Element headline : newsHeadlines2) {
+            System.out.format("%s\n\t",headline.html());
+        }
+
     }
 }
